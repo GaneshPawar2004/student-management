@@ -10,6 +10,17 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         ...
     </nav>
+    @if(session('status'))
+        <div class="container mt-3"><div class="alert alert-success">{{ session('status') }}</div></div>
+    @endif
+    @if($errors->any())
+        <div class="container mt-3"><div class="alert alert-danger mb-0">
+            <ul class="mb-0">
+                @foreach($errors->all() as $e)<li>{{ $e }}</li>@endforeach
+            </ul>
+        </div></div>
+    @endif
+
 
     <main class="container py-4">
         @yield('content')

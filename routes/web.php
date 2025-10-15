@@ -10,3 +10,5 @@ Route::get('/health', function () {
 
 Route::get('/', [WelcomeController::class, 'index']);
 Route::resource('students', StudentController::class);
+Route::get('students/{student}/restore', [StudentController::class, 'restore'])->name('students.restore');
+Route::delete('students/{student}/force', [StudentController::class, 'forceDelete'])->name('students.force-delete');
